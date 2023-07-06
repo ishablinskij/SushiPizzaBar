@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.project</groupId>
-    <artifactId>SushiPizzaBar1</artifactId>
+    <artifactId>SushiPizzaBar</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SushiPizzaBar</name>
     <description>SushiPizzaBar</description>
