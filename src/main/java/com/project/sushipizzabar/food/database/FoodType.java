@@ -1,4 +1,4 @@
-package com.project.sushipizzabar.food;
+package com.project.sushipizzabar.food.database;
 
 public enum FoodType {
     SUSHI,

@@ -1,13 +1,11 @@
-package com.project.sushipizzabar.food;
+package com.project.sushipizzabar.food.database;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CollectionType;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.TreeMap;
 
 @Getter
 @Setter
@@ -21,6 +19,7 @@ public class Food {
     @Column
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column
     private FoodType type;
 
