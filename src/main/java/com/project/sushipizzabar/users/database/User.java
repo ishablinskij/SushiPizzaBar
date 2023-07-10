@@ -26,6 +26,6 @@ public class User {
     private BigDecimal balance;
 
     @Column(unique = true)
-    private String email;
+    private String telephone;
 
 }
