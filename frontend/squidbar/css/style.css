@@ -230,3 +230,7 @@ footer a {
 	color:#999;
 	font-size:12px;
 }
+
+.privacy-policy-a:hover {
+	color: #FFFFFF;
+}
