@@ -1,6 +1,5 @@
 package com.project.sushipizzabar.users.database;
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

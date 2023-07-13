@@ -1,10 +1,11 @@
 package com.project.sushipizzabar.users.database;
 
 import com.project.sushipizzabar.food.database.Food;
-import com.project.sushipizzabar.users.database.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @Entity
@@ -18,4 +19,7 @@ public class Basket {
 
     @OneToOne
     private User user;
+
+    @OneToMany
+    private List<Food> foods;
 }
