@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+@import url('https://fonts.cdnfonts.com/css/vcr-osd-mono');
 
 * {
   box-sizing: border-box;
@@ -16,11 +17,11 @@ body {
   display: flex;
   padding-right: 150px;
   line-height: 24px;
-  font-size: 14px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
   visibility: visible;
-  font-family: "Rubik", sans-serif;
+  font-family: "VCR OSD MONO", sans-serif;
   color: #222222;
 }
 
@@ -180,15 +181,18 @@ figure {
 }
 .table_desc .cart_page table tbody tr td.product_name {
   min-width: 180px;
+  font-family: "VCR OSD MONO", serif;
 }
 .table_desc .cart_page table tbody tr td.product_name a {
   color: #222222;
   text-transform: capitalize;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 400;
+  font-family: "VCR OSD MONO", serif;
 }
 .table_desc .cart_page table tbody tr td.product_name a:hover {
   color: #596ebe;
+  font-family: "VCR OSD MONO", serif;
 }
 .table_desc .cart_page table tbody tr td.product-price {
   min-width: 130px;
@@ -199,11 +203,13 @@ figure {
 .table_desc .cart_page table tbody tr td.product_quantity {
   min-width: 180px;
   color: #000000;
+  font-family: "VCR OSD MONO", serif;
 }
 .table_desc .cart_page table tbody tr td.product_quantity label {
   font-weight: 500;
   margin-right: 5px;
   color: #000000;
+  font-family: "VCR OSD MONO", serif;
 }
 .table_desc .cart_page table tbody tr td.product_quantity input {
   width: 60px;
@@ -221,10 +227,11 @@ figure {
 .cart_page table thead tr:last-child th, .table_desc table tbody tr td:last-child {
   border-right: 0;
   color: #000000;
+  font-family: "VCR OSD MONO", serif;
 }
 
 .cart_submit {
-  margin-left: 300px;
+  margin-left: 225px;
   text-align: right;
 }
 @media only screen and (max-width: 767px) {

@@ -22,11 +22,11 @@ body,ul,ol,dl,h1,h2,h3,h4,h5,h6,td,th,caption,pre,p,blockquote,input,textarea,la
 }
 
 body{
-	font-size:87.5%
+	font-size:87.5%;
 }
 
 html>body{
-	font-size:14px
+	font-size:14px;
 }
 
 html{
@@ -41,7 +41,7 @@ body,html{
 
 body,ul,ol,dl,h1,h3,h4,h5,h6,td,th,caption,pre,p,blockquote,input,textarea,label {
 	font-family: "VCR_OSD_MONO_1.001",Verdana,Arial,Tahoma,sans-serif;
-	color:#ccc;
+	color:#000000;
 }
 
 body {
@@ -60,7 +60,7 @@ header nav ul li a, header nav ul li a:hover {
 }
 
 #wrapper img {
-	max-width: 100%;
+	max-width: 200%;
 	height: auto;
 }
 
@@ -79,12 +79,12 @@ ul {
 	list-style-position:inside;
 }
 
-a,a:visited {
+a {
 	-o-transition: color 0.25s ease-in;
 	-webkit-transition: color 0.25s ease-in;
 	-moz-transition: color 0.25s ease-in;
 	transition: color 0.25s ease-in;
-	color:#cecccc;
+	color:#000000;
 	text-decoration:underline;
 }
 
@@ -192,7 +192,7 @@ footer a {
 }
 
 .the-logo {
-	background-color: #596ebe
+	background-color: #596ebe;
 }
 
 .menu-item-signout {
@@ -231,6 +231,10 @@ footer a {
 	font-size:12px;
 }
 
-.privacy-policy-a:hover {
+.privacy_policy_a{
+	color: #cecccc;
+}
+
+.privacy_policy_a:hover{
 	color: #FFFFFF;
 }
