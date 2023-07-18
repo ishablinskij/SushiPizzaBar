@@ -1,4 +1,4 @@
-package com.project.sushipizzabar.food.database;
+package com.project.sushipizzabar.food.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -29,8 +29,9 @@ public class Food {
     @Column
     private BigDecimal weight;
 
+    @Enumerated(EnumType.STRING)
     @Column
-    private BigDecimal size;
+    private Size size;
 
     @Column
     private String description;

@@ -1,13 +1,21 @@
 package com.project.sushipizzabar;
 
+import com.project.sushipizzabar.users.password.PasswordEncoder;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootTest
 class SushiPizzaBarApplicationTests {
 
     @Test
-    void contextLoads() {
+    void testEncoding() {
+        PasswordEncoder passwordEncoder = new PasswordEncoder(new BCryptPasswordEncoder());
+        char[] pass = passwordEncoder.encode("password".toCharArray());
+        System.out.println(new String(pass));
+        Assertions.assertTrue(passwordEncoder.matches("password".toCharArray(), pass));
+
     }
 
 }

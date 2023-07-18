@@ -1,6 +1,7 @@
-package com.project.sushipizzabar.users.database;
+package com.project.sushipizzabar.users.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,16 +16,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "second_name")
-    private String secondName;
+    @Column
+    private String name;
 
     @Column
     private BigDecimal balance;
 
     @Column(unique = true)
+    @NotEmpty
     private String telephone;
 
+    @Column(unique = true)
+    @NotEmpty
+    private char[] password;
 }
