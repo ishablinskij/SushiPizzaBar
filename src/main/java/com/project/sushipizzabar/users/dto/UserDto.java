@@ -1,12 +1,11 @@
 package com.project.sushipizzabar.users.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.project.sushipizzabar.users.model.Address;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
 public class UserDto {
 
     private int id;
@@ -18,5 +17,7 @@ public class UserDto {
     private String telephone;
 
     private char[] password;
+
+    private Address address;
 
 }

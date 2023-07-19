@@ -1,4 +1,4 @@
-package com.project.sushipizzabar.basket.dto;
+package com.project.sushipizzabar.food.dto;
 
 import com.project.sushipizzabar.food.model.Food;
 import lombok.Getter;

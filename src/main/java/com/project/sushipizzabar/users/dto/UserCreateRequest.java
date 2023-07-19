@@ -11,4 +11,8 @@ public class UserCreateRequest {
 
     private char[] password;
 
+    private char[] passwordRetry;
+
+    private AddressCreateRequest address;
+
 }

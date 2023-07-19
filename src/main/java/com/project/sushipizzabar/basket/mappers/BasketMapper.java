@@ -1,12 +1,10 @@
 package com.project.sushipizzabar.basket.mappers;
 
-import com.project.sushipizzabar.basket.dto.FoodCreateRequest;
-import com.project.sushipizzabar.basket.model.Basket;
 import com.project.sushipizzabar.basket.dto.BasketDto;
-import com.project.sushipizzabar.users.dto.UserDto;
+import com.project.sushipizzabar.food.dto.FoodCreateRequest;
+import com.project.sushipizzabar.basket.model.Basket;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 

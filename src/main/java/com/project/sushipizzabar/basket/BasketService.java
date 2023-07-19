@@ -2,19 +2,13 @@ package com.project.sushipizzabar.basket;
 
 import com.project.sushipizzabar.basket.dao.BasketRepository;
 import com.project.sushipizzabar.basket.dto.BasketDto;
-import com.project.sushipizzabar.basket.dto.FoodCreateRequest;
+import com.project.sushipizzabar.food.dto.FoodCreateRequest;
 import com.project.sushipizzabar.basket.mappers.BasketMapper;
 import com.project.sushipizzabar.basket.model.Basket;
-import com.project.sushipizzabar.users.UserService;
-import com.project.sushipizzabar.users.dao.UserRepository;
-import com.project.sushipizzabar.users.dto.UserCreateRequest;
-import com.project.sushipizzabar.users.dto.UserDto;
 import com.project.sushipizzabar.users.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
