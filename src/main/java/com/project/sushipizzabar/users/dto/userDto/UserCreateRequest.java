@@ -1,5 +1,6 @@
-package com.project.sushipizzabar.users.dto;
+package com.project.sushipizzabar.users.dto.userDto;
 
+import com.project.sushipizzabar.users.dto.addressDto.AddressCreateRequest;
 import lombok.Data;
 
 @Data

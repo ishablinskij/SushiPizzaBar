@@ -1,7 +1,7 @@
 package com.project.sushipizzabar.users.mappers;
 
-import com.project.sushipizzabar.users.dto.AddressCreateRequest;
-import com.project.sushipizzabar.users.dto.AddressDto;
+import com.project.sushipizzabar.users.dto.addressDto.AddressCreateRequest;
+import com.project.sushipizzabar.users.dto.addressDto.AddressDto;
 import com.project.sushipizzabar.users.model.Address;
 import org.springframework.stereotype.Component;
 

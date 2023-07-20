@@ -12,21 +12,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class BasketService {
 
     private final BasketRepository basketRepository;
 
     private final BasketMapper mapper;
 
-
-    @Transactional
     public BasketDto findById(Integer id) {
         return basketRepository.findById(id)
                 .map(mapper::toDto)
                 .get();
     }
 
-    @Transactional
     public Integer create(User user) {
         Basket basket = new Basket();
         basket.setUser(user);
@@ -34,12 +32,10 @@ public class BasketService {
         return savedBasket.getId();
     }
 
-    @Transactional
     public Integer addFood(FoodCreateRequest createRequest) {
         Basket basket = basketRepository.findById(createRequest.getBasketId());
         basket.addFood(createRequest.getFood());
         Basket savedBasket = basketRepository.save(basket);
         return savedBasket.getId();
     }
-
 }

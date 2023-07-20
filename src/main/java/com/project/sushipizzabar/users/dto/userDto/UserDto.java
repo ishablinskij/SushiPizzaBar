@@ -1,4 +1,4 @@
-package com.project.sushipizzabar.users.dto;
+package com.project.sushipizzabar.users.dto.userDto;
 
 import com.project.sushipizzabar.users.model.Address;
 import lombok.Data;

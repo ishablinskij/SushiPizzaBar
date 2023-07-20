@@ -1,8 +1,8 @@
 package com.project.sushipizzabar.users.controllers;
 
 import com.project.sushipizzabar.users.UserService;
-import com.project.sushipizzabar.users.dto.UserCreateRequest;
-import com.project.sushipizzabar.users.dto.UserDto;
+import com.project.sushipizzabar.users.dto.userDto.UserCreateRequest;
+import com.project.sushipizzabar.users.dto.userDto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

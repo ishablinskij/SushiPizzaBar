@@ -1,8 +1,9 @@
 package com.project.sushipizzabar.users.mappers;
 
-import com.project.sushipizzabar.users.dto.UserCreateRequest;
+import com.project.sushipizzabar.users.dto.userDto.UserCreateRequest;
+import com.project.sushipizzabar.users.dto.userDto.UserSignInRequest;
 import com.project.sushipizzabar.users.model.User;
-import com.project.sushipizzabar.users.dto.UserDto;
+import com.project.sushipizzabar.users.dto.userDto.UserDto;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -45,6 +46,22 @@ public class UserMapper {
         user.setName(createRequest.getName());
         user.setTelephone(createRequest.getTelephone());
         user.setPassword(createRequest.getPassword());
+        return user;
+    }
+
+    public UserDto toDto(UserSignInRequest signInRequest) {
+        UserDto userDto = new UserDto();
+        userDto.setBalance(BigDecimal.ZERO);
+        userDto.setTelephone(signInRequest.getTelephone());
+        userDto.setPassword(signInRequest.getPassword());
+        return userDto;
+    }
+
+    public User toUser(UserSignInRequest signInRequest) {
+        User user = new User();
+        user.setBalance(BigDecimal.ZERO);
+        user.setTelephone(signInRequest.getTelephone());
+        user.setPassword(signInRequest.getPassword());
         return user;
     }
 

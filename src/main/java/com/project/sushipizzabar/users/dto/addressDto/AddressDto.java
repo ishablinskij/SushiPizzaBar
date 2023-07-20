@@ -1,9 +1,10 @@
-package com.project.sushipizzabar.users.dto;
+package com.project.sushipizzabar.users.dto.addressDto;
 
 import lombok.Data;
 
 @Data
-public class AddressCreateRequest {
+public class AddressDto {
+    private int id;
 
     private String city;
 

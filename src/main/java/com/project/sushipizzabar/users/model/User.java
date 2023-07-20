@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -29,4 +31,11 @@ public class User {
     @Column(unique = true)
     @NotEmpty
     private char[] password;
+
+    @ManyToMany
+    private Set<Role> roles;
+
+    public void addRole(Role role) {
+        getRoles().add(role);
+    }
 }
