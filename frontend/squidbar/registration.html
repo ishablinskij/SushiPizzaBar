@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <script src="js/registration.js">
-    </script>
+    <script src="js/registration.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.7.0.js"
+            integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+            crossorigin="anonymous"></script>
 </head>
 <body>
-    <button id="b">button</button>
+    <button onclick="db.login()">login</button>
+    <button onclick="db.addUserToDB()">add user</button>
+    <button onclick="db.getBalance()">balance</button>
+    <button onclick="db.addFood()">add food</button>
 </body>
 </html>

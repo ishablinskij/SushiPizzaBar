@@ -12,9 +12,9 @@ class SushiPizzaBarApplicationTests {
     @Test
     void testEncoding() {
         PasswordEncoder passwordEncoder = new PasswordEncoder(new BCryptPasswordEncoder());
-        char[] pass = passwordEncoder.encode("password".toCharArray());
-        System.out.println(new String(pass));
-        Assertions.assertTrue(passwordEncoder.matches("password".toCharArray(), pass));
+        String pass = passwordEncoder.encode("password");
+        System.out.println(pass);
+        Assertions.assertTrue(passwordEncoder.matches("password", pass));
 
     }
 

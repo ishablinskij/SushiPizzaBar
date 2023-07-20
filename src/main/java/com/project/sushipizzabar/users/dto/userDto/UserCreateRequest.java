@@ -10,9 +10,9 @@ public class UserCreateRequest {
 
     private String name;
 
-    private char[] password;
+    private String password;
 
-    private char[] passwordRetry;
+    private String passwordRetry;
 
     private AddressCreateRequest address;
 

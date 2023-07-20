@@ -6,6 +6,7 @@ import com.project.sushipizzabar.users.dao.RoleRepository;
 import com.project.sushipizzabar.users.dao.UserRepository;
 import com.project.sushipizzabar.users.dto.userDto.UserCreateRequest;
 import com.project.sushipizzabar.users.dto.userDto.UserDto;
+import com.project.sushipizzabar.users.dto.userDto.UserSignInRequest;
 import com.project.sushipizzabar.users.mappers.AddressMapper;
 import com.project.sushipizzabar.users.mappers.UserMapper;
 import com.project.sushipizzabar.users.model.Address;
@@ -16,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -69,6 +71,12 @@ public class UserService {
 
         basketService.create(user);
         return savedUser.getId();
+    }
+
+    public boolean match(UserDto userDto, UserSignInRequest signInRequest) {
+        String dbPassword = userDto.getPassword();
+        String requestPassword = signInRequest.getPassword();
+        return passwordEncoder.matches(requestPassword, dbPassword);
     }
 
     public UserDto badRequest() {

@@ -30,7 +30,7 @@ public class User {
 
     @Column(unique = true)
     @NotEmpty
-    private char[] password;
+    private String password;
 
     @ManyToMany
     private Set<Role> roles;

@@ -16,7 +16,7 @@ public class UserDto {
 
     private String telephone;
 
-    private char[] password;
+    private String password;
 
     private Address address;
 

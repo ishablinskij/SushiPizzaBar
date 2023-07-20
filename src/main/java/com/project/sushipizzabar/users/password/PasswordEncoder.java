@@ -12,14 +12,14 @@ public class PasswordEncoder {
         this.encoder = encoder;
     }
 
-    public char[] encode(char[] password) {
-        CharSequence pass = new String(password);
+    public String encode(String password) {
+        String pass = password;
         pass = encoder.encode(pass);
-        return pass.toString().toCharArray();
+        return pass;
     }
 
-    public boolean matches(char[] password, char[] result){
-        return encoder.matches(new String(password), new String(result));
+    public boolean matches(String password, String result){
+        return encoder.matches(password, result);
     }
 
 }

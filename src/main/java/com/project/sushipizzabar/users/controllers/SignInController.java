@@ -6,6 +6,7 @@ import com.project.sushipizzabar.users.dto.userDto.UserSignInRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,10 +20,10 @@ public class SignInController {
     private final UserService service;
 
     @PostMapping
-    public ResponseEntity<UserDto> login(UserSignInRequest userSignInRequest) {
+    public ResponseEntity<UserDto> login(@RequestBody UserSignInRequest userSignInRequest) {
         if (service.existsByTelephone(userSignInRequest.getTelephone())) {
             UserDto userDto = service.findByTelephone(userSignInRequest.getTelephone());
-            if (Arrays.equals(userDto.getPassword(), userSignInRequest.getPassword())) {
+            if (service.match(userDto, userSignInRequest)) {
                 return ResponseEntity.ok(userDto);
             } else {
                 return ResponseEntity.badRequest()

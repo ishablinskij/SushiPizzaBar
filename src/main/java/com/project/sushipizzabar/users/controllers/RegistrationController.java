@@ -21,8 +21,9 @@ public class RegistrationController {
 
     @PostMapping
     public ResponseEntity<UserDto> addUser(@RequestBody UserCreateRequest userCreateRequest) {
-        if (!Arrays.equals(userCreateRequest.getPassword(), userCreateRequest.getPasswordRetry())) {
-            throw new IllegalArgumentException();
+        if (!userCreateRequest.getPassword().equals(userCreateRequest.getPasswordRetry())) {
+            return ResponseEntity.badRequest()
+                    .body(service.badRequest());
         }
         return ResponseEntity.ok(service.findById(service.create(userCreateRequest)));
     }
