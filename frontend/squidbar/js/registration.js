@@ -89,7 +89,24 @@ let db = {
             url:'http://localhost:8080/user/basket',
             type:'GET',
             data:jQuery.param(request),
-            contentType:'application/x-www-form-urlencoded; charset=utf-8',
+            contentType:'application/x-www-form-urlencoded; charset=utf-8'
+        }).done(function (data) {
+            // it can be replaced on another logic
+            console.log(data);
+        });
+    },
+
+    getFoodByTypeAndPage : function (type, pageNumber, foodCount) {
+        let request = {
+            'pageNumber': pageNumber,
+            'foodCount': foodCount
+        }
+
+        let response = $.ajax({
+            url:'http://localhost:8080/category/' + type,
+            type: 'GET',
+            data: jQuery.param(request),
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8'
         }).done(function (data) {
             // it can be replaced on another logic
             console.log(data);
@@ -101,7 +118,11 @@ let signUp = {
 
     submitForms : function () {
         let formIsCorrect = false;
-        formIsCorrect = this.telephoneCodeIsCorrect && this.telephoneIsCorrect && this.usernameIsCorrect && this.cityIsCorrect && this.addressIsCorrect;
+        formIsCorrect = this.telephoneCodeIsCorrect === true
+            && this.telephoneIsCorrect === true
+            && this.usernameIsCorrect === true
+            && this.cityIsCorrect === true
+            && this.addressIsCorrect === true;
         if (formIsCorrect) {
             window.location.replace('http://localhost:63342/SushiPizzaBar/frontend/squidbar/registration2.html');
         }
@@ -112,7 +133,7 @@ let signUp = {
         let telephoneCodeInput = $('#telephoneCodeInput');
         let telephoneCode = telephoneCodeInput.val();
         if (telephoneCode !== '+375') {
-            telephoneCodeInput.focus();
+            telephoneCodeInput.css('border', '3px solid red');
         }
         return telephoneCode === '+375';
     },
@@ -121,7 +142,7 @@ let signUp = {
         let telephoneInput = $('#telephoneInput');
         let telephoneCode = telephoneInput.val();
         if (telephoneCode.length > 20 || telephoneCode.match(/^\d+$/)) {
-            telephoneInput.focus();
+            telephoneInput.css('border', '3px solid red');
         }
         return telephoneCode.length <= 20;
     },
@@ -132,7 +153,7 @@ let signUp = {
         if (username.match(/^\D+$/)) {
             return true;
         } else {
-            usernameInput.focus();
+            usernameInput.css('border', '3px solid red');
             return false;
         }
     },
@@ -143,7 +164,7 @@ let signUp = {
         if (city.match(/^\D+$/)) {
             return true;
         } else {
-            cityInput.focus();
+            cityInput.css('border', '3px solid red');
             return false;
         }
     },
@@ -154,7 +175,7 @@ let signUp = {
         if (address.match(/^\D+[.]\s\D+\s\d+$/)) {
             return true;
         } else {
-            addressInput.focus();
+            addressInput.css('border', '3px solid red');
             return false;
         }
     }

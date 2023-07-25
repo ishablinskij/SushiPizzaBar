@@ -4,6 +4,7 @@ import com.project.sushipizzabar.food.model.Food;
 import com.project.sushipizzabar.food.model.FoodType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Repository;
 
 import java.awt.print.Pageable;
@@ -17,4 +18,6 @@ public interface FoodRepository extends JpaRepository<Food, Integer> {
     List<Food> findByName(String name);
 
     List<Food> findAllByType(FoodType foodType);
+
+    List<Food> findAllByType(FoodType type, QPageRequest pageable);
 }
