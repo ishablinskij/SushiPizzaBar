@@ -4,15 +4,55 @@
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <script src="js/registration.js"></script>
+    <link rel="stylesheet" href="css/registration.css">
     <script
             src="https://code.jquery.com/jquery-3.7.0.js"
             integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <button onclick="db.login()">login</button>
-    <button onclick="db.addUserToDB()">add user</button>
-    <button onclick="db.getBalance()">balance</button>
-    <button onclick="db.addFood()">add food</button>
+    <div id="background">
+        <img id="blob2" src="img/sprites/secondBlob.svg" alt="blob2">
+        <img id="blob3" src="img/sprites/thirdBlob.svg" alt="blob3">
+        <img id="blob4" src="img/sprites/fourthBlob.svg" alt="blob4">
+        <img id="blob1" src="img/sprites/firstBlob.svg" alt="blob1">
+    </div>
+    <div id="box1">
+        <div id="tab">
+            <p id="tab1">Телефон</p>
+            <p id="tab2">Пароль</p>
+            <div id="line1"></div>
+            <div id="line2"></div>
+        </div>
+        <div id="inputs">
+            <p id="telephone">Телефон</p>
+            <label>
+                <input id="telephoneCodeInput" type="text">
+                <input id="telephoneInput" type="text">
+            </label>
+            <p id="username">Как к вам обращаться?</p>
+            <label>
+                <input id="usernameInput" type="text">
+            </label>
+            <p id="city">Город</p>
+            <label>
+                <input id="cityInput" type="text">
+            </label>
+            <p id="address">Адресс</p>
+            <label>
+                <input id="addressInput" type="text">
+            </label>
+        </div>
+        <div id="button">
+            <button onclick="signUp.submitForms()" id="readyButton"></button>
+            <p id="ready">Готово</p>
+        </div>
+    </div>
+
 </body>
 </html>

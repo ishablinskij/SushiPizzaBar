@@ -25,4 +25,13 @@ public class UserController {
             throw new IllegalArgumentException();
         }
     }
+
+    @GetMapping("/basket")
+    public ResponseEntity<Integer> getBasketByUserId(@RequestParam Integer id) {
+        if (service.basketExists(id)) {
+            return ResponseEntity.ok(service.getBasketByUserId(id).getId());
+        } else {
+            throw new IllegalArgumentException("No basket with id: " + id);
+        }
+    }
 }

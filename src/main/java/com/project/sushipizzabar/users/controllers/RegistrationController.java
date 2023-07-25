@@ -1,5 +1,6 @@
 package com.project.sushipizzabar.users.controllers;
 
+import com.project.sushipizzabar.auth.exceptions.UserAlreadyExistsException;
 import com.project.sushipizzabar.users.UserService;
 import com.project.sushipizzabar.users.dto.userDto.UserCreateRequest;
 import com.project.sushipizzabar.users.dto.userDto.UserDto;
@@ -25,7 +26,13 @@ public class RegistrationController {
             return ResponseEntity.badRequest()
                     .body(service.badRequest());
         }
-        return ResponseEntity.ok(service.findById(service.create(userCreateRequest)));
+        try {
+            return ResponseEntity.ok(service.findById(service.create(userCreateRequest)));
+        } catch (UserAlreadyExistsException e) {
+            return ResponseEntity.badRequest()
+                    .body(service.badRequest());
+        }
+
     }
 
 

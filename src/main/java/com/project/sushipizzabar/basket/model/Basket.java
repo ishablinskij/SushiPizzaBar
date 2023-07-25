@@ -18,9 +18,6 @@ public class Basket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne
-    private User user;
-
     @OneToMany(cascade = CascadeType.ALL)
     private List<Food> foods;
 

@@ -13,7 +13,6 @@ public class BasketMapper {
 
     public Basket toBasket(BasketDto basketDto) {
         Basket basket = new Basket();
-        basket.setUser(basketDto.getUser());
         basket.setFoods(basketDto.getFoods());
         basket.setId(basketDto.getId());
         return basket;
@@ -21,7 +20,6 @@ public class BasketMapper {
 
     public BasketDto toDto(Basket basket) {
         BasketDto basketDto = new BasketDto();
-        basketDto.setUser(basket.getUser());
         basketDto.setFoods(basket.getFoods());
         basketDto.setId(basket.getId());
         return basketDto;

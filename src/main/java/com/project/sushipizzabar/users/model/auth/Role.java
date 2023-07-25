@@ -1,4 +1,4 @@
-package com.project.sushipizzabar.users.model;
+package com.project.sushipizzabar.users.model.auth;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.springframework.security.core.GrantedAuthority;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,8 +24,16 @@ public class Role implements GrantedAuthority {
     @Column
     private String name;
 
+    @ManyToMany
+    private List<Privilege> privileges;
+
     public Role(String name) {
         this.name = name;
+    }
+
+    public Role(String name, List<Privilege> privileges) {
+        this.name = name;
+        this.privileges = privileges;
     }
 
     @Override

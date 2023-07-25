@@ -1,5 +1,7 @@
 package com.project.sushipizzabar.users.model;
 
+import com.project.sushipizzabar.basket.model.Basket;
+import com.project.sushipizzabar.users.model.auth.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
@@ -7,7 +9,6 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -33,7 +34,10 @@ public class User {
     private String password;
 
     @ManyToMany
-    private Set<Role> roles;
+    private List<Role> roles;
+
+    @OneToOne
+    private Basket basket;
 
     public void addRole(Role role) {
         getRoles().add(role);

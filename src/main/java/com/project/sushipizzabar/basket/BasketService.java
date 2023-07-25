@@ -27,9 +27,12 @@ public class BasketService {
 
     public Integer create(User user) {
         Basket basket = new Basket();
-        basket.setUser(user);
         Basket savedBasket = basketRepository.save(basket);
         return savedBasket.getId();
+    }
+
+    public boolean existsById(int id) {
+        return basketRepository.existsById(id);
     }
 
     public Integer addFood(FoodCreateRequest createRequest) {
