@@ -1,8 +1,6 @@
 package com.project.sushipizzabar.auth;
 
 import com.project.sushipizzabar.auth.user.SecurityUser;
-import com.project.sushipizzabar.users.UserService;
-import com.project.sushipizzabar.users.dao.RoleRepository;
 import com.project.sushipizzabar.users.dao.UserRepository;
 import com.project.sushipizzabar.users.model.User;
 import com.project.sushipizzabar.users.model.auth.Privilege;
@@ -11,20 +9,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class UserDetailsRegistrationService implements UserDetailsManager {
+public class TelephoneUserDetailsManager implements UserDetailsManager {
 
     private final UserRepository userRepository;
 

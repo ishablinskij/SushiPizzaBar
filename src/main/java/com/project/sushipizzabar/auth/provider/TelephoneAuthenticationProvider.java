@@ -1,6 +1,6 @@
 package com.project.sushipizzabar.auth.provider;
 
-import com.project.sushipizzabar.auth.UserDetailsRegistrationService;
+import com.project.sushipizzabar.auth.TelephoneUserDetailsManager;
 import com.project.sushipizzabar.auth.tokens.TelephoneAuthenticationToken;
 import com.project.sushipizzabar.users.password.SimplePasswordEncoder;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class TelephoneAuthenticationProvider implements AuthenticationProvider {
 
-    private final UserDetailsRegistrationService userService;
+    private final TelephoneUserDetailsManager userService;
 
     private final SimplePasswordEncoder passwordEncoder;
 

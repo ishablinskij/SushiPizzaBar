@@ -55,7 +55,9 @@ let db = {
         });
     },
 
-    addFood : function (basketId, name, type, cost, weight, size, description, ingredients) {
+
+    addFood : function (basketId, name, type, cost, weight, size, description, ingredients, picturePath) {
+        size.toUpperCase();
         let request = {
             "basketId": basketId,
             "food": {
@@ -65,7 +67,8 @@ let db = {
                 "weight": weight,
                 "size": size,
                 "description": description,
-                "ingredients": ingredients
+                "ingredients": ingredients,
+                "picture": picturePath
             }
         }
         let response = $.ajax({
@@ -96,6 +99,7 @@ let db = {
         });
     },
 
+    //types: pizza, sushi, rolls
     getFoodByTypeAndPage : function (type, pageNumber, foodCount) {
         let request = {
             'pageNumber': pageNumber,

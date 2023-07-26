@@ -1,7 +1,5 @@
 package com.project.sushipizzabar.auth.tokens;
 
-import com.project.sushipizzabar.auth.UserDetailsRegistrationService;
-import lombok.NoArgsConstructor;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 

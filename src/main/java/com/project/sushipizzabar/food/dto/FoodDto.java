@@ -28,4 +28,6 @@ public class FoodDto {
 
     private List<String> ingredients;
 
+    private String picturePath;
+
 }

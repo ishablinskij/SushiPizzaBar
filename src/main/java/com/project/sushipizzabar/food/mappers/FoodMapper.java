@@ -9,6 +9,7 @@ public class FoodMapper {
         Food food = new Food();
         food.setSize(foodDto.getSize());
         food.setDescription(foodDto.getDescription());
+        food.setPicturePath(foodDto.getPicturePath());
         food.setCost(foodDto.getCost());
         food.setName(foodDto.getName());
         food.setId(foodDto.getId());
@@ -21,6 +22,7 @@ public class FoodMapper {
     public FoodDto toDto(Food food) {
         FoodDto foodDto = new FoodDto();
         foodDto.setSize(food.getSize());
+        foodDto.setPicturePath(food.getPicturePath());
         foodDto.setDescription(food.getDescription());
         foodDto.setCost(food.getCost());
         foodDto.setName(food.getName());

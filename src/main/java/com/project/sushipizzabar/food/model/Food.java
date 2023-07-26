@@ -39,5 +39,8 @@ public class Food {
     @ElementCollection
     private List<String> ingredients;
 
+    @Column
+    private String picturePath;
+
 
 }
