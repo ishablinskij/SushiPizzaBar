@@ -1,4 +1,8 @@
+let telephone;
+
 let db = {
+
+
     addUserToDB : function(telephone, name, password, passwordRetry, city, street, houseNumber) {
         origin='*';
 
@@ -121,14 +125,16 @@ let db = {
 let signUp = {
 
     submitForms : function () {
-        let formIsCorrect = false;
-        formIsCorrect = this.telephoneCodeIsCorrect === true
-            && this.telephoneIsCorrect === true
-            && this.usernameIsCorrect === true
-            && this.cityIsCorrect === true
-            && this.addressIsCorrect === true;
-        if (formIsCorrect) {
+        let formIsCorrect = this.telephoneCodeIsCorrect() === true
+            && this.telephoneIsCorrect() === true
+            && this.usernameIsCorrect() === true
+            && this.cityIsCorrect() === true
+            && this.addressIsCorrect() === true;
+        if (formIsCorrect === true) {
+            telephone = $('#telephoneCodeInput').val() + $('#telephoneInput').val;
             window.location.replace('http://localhost:63342/SushiPizzaBar/frontend/squidbar/registration2.html');
+        } else {
+            console.log("pipa")
         }
 
     },
@@ -137,55 +143,58 @@ let signUp = {
         let telephoneCodeInput = $('#telephoneCodeInput');
         let telephoneCode = telephoneCodeInput.val();
         if (telephoneCode !== '+375') {
-            telephoneCodeInput.css('border', '3px solid red');
+
         }
         return telephoneCode === '+375';
     },
 
     telephoneIsCorrect : function () {
+        let regex = new RegExp(/^d+$/);
         let telephoneInput = $('#telephoneInput');
         let telephoneCode = telephoneInput.val();
-        if (telephoneCode.length > 20 || telephoneCode.match(/^\d+$/)) {
+        if (telephoneCode.length > 20 || regex.test(telephoneCode)) {
             telephoneInput.css('border', '3px solid red');
         }
         return telephoneCode.length <= 20;
     },
 
     usernameIsCorrect : function () {
+        let regex = new RegExp(/^\D+$/);
         let usernameInput = $('#usernameInput');
         let username = usernameInput.val();
-        if (username.match(/^\D+$/)) {
+        if (regex.test(username)) {
             return true;
         } else {
-            usernameInput.css('border', '3px solid red');
             return false;
         }
     },
 
     cityIsCorrect : function () {
+        let regex = new RegExp(/^\D+$/);
         let cityInput = $('#cityInput');
         let city = cityInput.val();
-        if (city.match(/^\D+$/)) {
+        if (regex.test(city)) {
             return true;
         } else {
-            cityInput.css('border', '3px solid red');
             return false;
         }
     },
 
     addressIsCorrect : function () {
+        let regex = new RegExp(/^\D+[.]\s\D+\s\d+$/);
         let addressInput = $('#addressInput');
         let address = addressInput.val();
-        if (address.match(/^\D+[.]\s\D+\s\d+$/)) {
+        if (regex.test(address)) {
             return true;
         } else {
-            addressInput.css('border', '3px solid red');
             return false;
         }
     }
 };
 
-
+/*$("telephone").ready(function () {
+    this.text(telephone);
+})*/
 
 
 

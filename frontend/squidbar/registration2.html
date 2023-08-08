@@ -3,8 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
+    <script src="js/registration.js"></script>
+    <link rel="stylesheet" href="css/registration2.css">
+    <script
+            src="https://code.jquery.com/jquery-3.7.0.js"
+            integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+            crossorigin="anonymous">
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
+<div id="background">
+    <img id="blob2" src="img/sprites/secondBlob.svg" alt="blob2">
+    <img id="blob3" src="img/sprites/thirdBlob.svg" alt="blob3">
+    <img id="blob4" src="img/sprites/fourthBlob.svg" alt="blob4">
+    <img id="blob1" src="img/sprites/firstBlob.svg" alt="blob1">
+</div>
+<div id="box1">
+    <div id="tab">
+        <p id="tab1">Телефон</p>
+        <p id="tab2">Пароль</p>
+        <div id="line1"></div>
+        <div id="line2"></div>
+    </div>
+    <div id="inputs">
+        <p id="password">Пароль</p>
+        <input id="passwordInput" type="text">
+        <p id="passwordRetry">Повтор пароля</p>
+        <input id="passwordRetryInput" type="text">
+        <div id="telephoneCheckingBox">
+            <p id="telephoneChecking">Это точно ваш телефон?</p>
+            <p id="telephone">+375 (44) 160-70-74</p>
+            <a id="no" href="registration.html">Нет</a> <!--TODO сделать через jquery-->
+        </div>
+        <div id="privacyPolicyBox">
+
+            <div id="privacyPolicySquare">
+                <img id="checkmark" src="img/checkmark.svg" alt="checking">
+            </div>
+            <p class="privacyPolicy" id="privacyPolicyText">Я принимаю условия Политики конфинденциальности и Лицензионного соглашения</p>
+        </div>
+        <div id="registrationBlock">
+            <button id="registrationButton"><p id="registration">Зарегистрироваться</p></button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
