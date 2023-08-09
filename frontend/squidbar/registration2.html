@@ -36,7 +36,10 @@
         <input id="passwordRetryInput" type="text">
         <div id="telephoneCheckingBox">
             <p id="telephoneChecking">Это точно ваш телефон?</p>
-            <p id="telephone">+375 (44) 160-70-74</p>
+            <p id="telephoneText"></p>
+            <script>
+                signUp.getTelephone();
+            </script>
             <a id="no" href="registration.html">Нет</a> <!--TODO сделать через jquery-->
         </div>
         <div id="privacyPolicyBox">

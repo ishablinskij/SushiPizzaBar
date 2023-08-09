@@ -131,12 +131,21 @@ let signUp = {
             && this.cityIsCorrect() === true
             && this.addressIsCorrect() === true;
         if (formIsCorrect === true) {
-            telephone = $('#telephoneCodeInput').val() + $('#telephoneInput').val;
+            let telephoneInput = $('#telephoneInput').val().toString();
+            telephone = $('#telephoneCodeInput')
+                .val().toString() + " (" + telephoneInput.substring(0, 2) + ')' + " " + telephoneInput.substring(2, 5) + "-" + telephoneInput.substring(5, 7) + "-" + telephoneInput.substring(7, 9);
+            localStorage.setItem("telephone", telephone)
             window.location.replace('http://localhost:63342/SushiPizzaBar/frontend/squidbar/registration2.html');
         } else {
             console.log("pipa")
         }
 
+    },
+
+    getTelephone : function () {
+        $("#telephoneText").ready(function () {
+            $("#telephoneText").text(localStorage.getItem("telephone"));
+        })
     },
 
     telephoneCodeIsCorrect : function () {
@@ -192,9 +201,7 @@ let signUp = {
     }
 };
 
-/*$("telephone").ready(function () {
-    this.text(telephone);
-})*/
+
 
 
 
