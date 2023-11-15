@@ -124,27 +124,52 @@ let db = {
 
 let signUp = {
 
-    submitForms : function () {
-        let formIsCorrect = this.telephoneCodeIsCorrect() === true
+    checkFirstForms : function () {
+        return this.telephoneCodeIsCorrect() === true
             && this.telephoneIsCorrect() === true
             && this.usernameIsCorrect() === true
             && this.cityIsCorrect() === true
             && this.addressIsCorrect() === true;
-        if (formIsCorrect === true) {
-            let telephoneInput = $('#telephoneInput').val().toString();
-            telephone = $('#telephoneCodeInput')
-                .val().toString() + " (" + telephoneInput.substring(0, 2) + ')' + " " + telephoneInput.substring(2, 5) + "-" + telephoneInput.substring(5, 7) + "-" + telephoneInput.substring(7, 9);
-            localStorage.setItem("telephone", telephone)
+    },
+
+    checkSecondForms : function () {
+        return this.telephoneCodeIsCorrect() === true
+            && this.telephoneIsCorrect() === true
+            && this.usernameIsCorrect() === true
+            && this.cityIsCorrect() === true
+            && this.addressIsCorrect() === true;
+    },
+
+    formatTelephone : function (telephone, telephoneCode) {
+        telephone = telephoneCode +  " (" + telephone.substring(0, 2) + ')' + " " + telephone.substring(2, 5) + "-" + telephone.substring(5, 7) + "-" + telephone.substring(7, 9);
+        return telephone;
+    },
+
+    getHouseNumber : function (address) {
+        let regex =  new RegExp(/\d+/);
+        let result = address.match(regex);
+        return result[0];
+    },
+
+    submitForms : function () {
+        if (signUp.checkFirstForms()) {
+            let telephone = $('#telephoneInput').val().toString();
+            localStorage.setItem("telephone", telephone);
+            let telephoneCode = $('#telephoneCodeInput').val().toString();
+            localStorage.setItem("telephoneCode", telephoneCode);
+            telephone = signUp.formatTelephone(telephone, telephoneCode);
+            localStorage.setItem("name", $('#usernameInput').val().toString());
+            localStorage.setItem("city", $('#cityInput').val().toString());
+            localStorage.setItem("address", $('#addressInput').val().toString());
             window.location.replace('http://localhost:63342/SushiPizzaBar/frontend/squidbar/registration2.html');
         } else {
             console.log("pipa")
         }
-
     },
 
     getTelephone : function () {
         $("#telephoneText").ready(function () {
-            $("#telephoneText").text(localStorage.getItem("telephone"));
+            $("#telephoneText").text(signUp.formatTelephone(localStorage.getItem("telephone"), localStorage.getItem("telephoneCode")));
         })
     },
 
@@ -198,6 +223,31 @@ let signUp = {
         } else {
             return false;
         }
+    },
+
+    passwordsIsCorrect : function () {
+        let passwordInput = $('#passwordInput');
+        let passwordRetryInput = $('#passwordRetryInput');
+        let password = passwordInput.val();
+        let passwordRetry = passwordRetryInput.val();
+        if (password === passwordRetry) {
+            localStorage.setItem("password", passwordInput.val().toString())
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    register : function () {
+        if (signUp.passwordsIsCorrect()) {
+            let telephone = localStorage.getItem("telephoneCode") + localStorage.getItem("telephone");
+            db.addUserToDB(telephone
+                ,localStorage.getItem("name"), localStorage.getItem("password")
+                ,localStorage.getItem("password")
+                ,localStorage.getItem("city")
+                ,signUp.getHouseNumber(localStorage.getItem("address"), localStorage.getItem("street")) );
+        }
+
     }
 };
 
