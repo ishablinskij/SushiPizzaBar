@@ -3390,7 +3390,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .single_product:hover .action_links {
   opacity: 1;
   visibility: visible;
-  bottom: 0;
+  top: 0;
 }
 .single_product:hover .action_links ul li a {
   -webkit-transform: translateX(0);
@@ -3429,11 +3429,11 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   transition: all 0.3s ease;
   position: absolute;
   left: 0;
-  bottom: -10px;
+  top: 0px;
   opacity: 0;
   visibility: hidden;
   z-index: 9;
-  background: #ffffff;
+  background: rgba(142,142,222,1);
 }
 .action_links ul {
   display: flex;
@@ -3446,7 +3446,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   display: inline-block;
 }
 .action_links ul li a:hover {
-  color: #596ebe;
+  color: #1C198D;
 }
 
 .label_product span {
@@ -5844,11 +5844,14 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   font-family: "VCR OSD MONO", serif;
 }
 
-.grid_list .single_product {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.stroke_3 {
   display: flex;
 }
+/*.grid_list .single_product {*/
+/*  display: -webkit-box;*/
+/*  display: -ms-flexbox;*/
+/*  display: flex;*/
+/*}*/
 @media only screen and (max-width: 767px) {
   .grid_list .single_product {
     flex-direction: column;
@@ -5915,6 +5918,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   border: 1px solid #ddd;
   padding: 8px 10px;
   margin: 0 0 30px;
+  margin-top: 20px;
 }
 @media only screen and (max-width: 767px) {
   .shop_toolbar_wrapper {
