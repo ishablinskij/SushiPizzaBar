@@ -1,7 +1,7 @@
 async function getData () {
     let arr = [];
-    for (let i = 0; i < 12; i++) {
-        arr.push(`img/product/productsImg/product${i+1}.jpg`);
+    for (let i = 262; i < 281; i++) {
+        arr.push(`img/rolls/${i}.png`);
     }
     return arr;
 }
