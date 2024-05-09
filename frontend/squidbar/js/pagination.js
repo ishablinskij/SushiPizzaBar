@@ -3,6 +3,8 @@ async function getData () {
     for (let i = 262; i < 281; i++) {
         arr.push(`img/rolls/${i}.png`);
     }
+    localStorage.setItem('data', arr);
+
     return arr;
 }
 
@@ -11,6 +13,7 @@ async function main () {
     const postsData = await getData();
     let currentPage = 1;
     let rows = 9;
+    let filter = 'Sort by average rating';
 
     function displayList(arrData, rowPerPage, page) {
         const postsEl = document.querySelector('#products');
@@ -19,8 +22,14 @@ async function main () {
         console.log(postsEl);
 
         const start = rowPerPage * page;
-        const end = start + rowPerPage;
+        let end = start + rowPerPage;
+        const countOfCards = postsData.length;
+        if (end > countOfCards) {
+            end = countOfCards;
+        }
         const paginationData = arrData.slice(start, end);
+        let label = document.querySelector('.page_amount');
+        label.innerHTML = "<p>Showing " + (start+1).toString() + "–" + end.toString() + " of " + countOfCards.toString() + " results</p>";
 
         console.log(paginationData);
 
@@ -99,7 +108,7 @@ async function main () {
                 "                                    </div>\n" +
                 "                                    <div class=\"variants_selects\">\n" +
                 "                                        <div class=\"variants_size\">\n" +
-                "                                            <h2>size</h2>\n" +
+                "                                            <h2>size</h2>" +
                 "                                            <select class=\"select_option\">\n" +
                 "                                                <option selected value=\"1\">small</option>\n" +
                 "                                                <option value=\"1\">middle</option>\n" +
@@ -163,8 +172,25 @@ async function main () {
         return liEl;
     }
 
+    async function sortByPrice() {
+        let labelEl = document.querySelector('.list');
+        let liEls = labelEl.children;
+        for (let i = 0; i < liEls.length; i++) {
+            liEls[i].addEventListener('click', () => {
+                if (liEls[i].innerText === 'Sort by price: low to high' && filter !== 'Sort by price: low to high') {
+                    filter = 'Sort by price: low to high';
+                    displayList(postsData.reverse(), rows, currentPage);
+                } else if (liEls[i].innerText === 'Sort by average rating' && filter !== 'Sort by average rating') {
+                    filter = 'Sort by average rating';
+                    displayList(postsData.reverse(), rows, currentPage);
+                }
+            })
+        }
+    }
+
     displayList(postsData, rows, currentPage);
     displayPagination(postsData, rows);
+    sortByPrice();
 }
 
 main();
