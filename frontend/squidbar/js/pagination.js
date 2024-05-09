@@ -3,9 +3,21 @@ async function getData () {
     for (let i = 262; i < 281; i++) {
         arr.push(`img/rolls/${i}.png`);
     }
-    localStorage.setItem('data', arr);
 
-    return arr;
+    let products = {data: []};
+    for (let i = 0; i < arr.length; i++) {
+        products.data.push({name: 'Peperoni',
+                                mass: Math.round(Math.random() * 1000),
+                                diam: Math.round(Math.random() * 100),
+                                cost: Math.round(Math.random() * 1000),
+                                img: arr[i]
+        })
+    }
+    console.log(products);
+    localStorage.setItem('data', products.data);
+    console.log(localStorage.data);
+
+    return products.data;
 }
 
 async function main () {
@@ -42,7 +54,7 @@ async function main () {
                 "          <div class=\"single_product\">\n" +
                 "               <div class=\"v17_117\">\n" +
                 "                    <a class=\"primary_img\" href=\"#\" data-toggle=\"modal\" data-target=\"#modal_box" + (parseInt(paginationData.indexOf(el))+1).toString() + "\"><img\n" +
-                "                                                src=\"" + el + "\" style=\" margin-top: 10px; margin-right: 35px; width: 70%\" alt=\"\"></a>\n" +
+                "                                                src=\"" + el.img + "\" style=\" margin-top: 10px; margin-right: 35px; width: 70%\" alt=\"\"></a>\n" +
                 "\n" +
                 "                    <div class=\"action_links\">\n" +
                 "                         <ul>\n" +
@@ -59,10 +71,10 @@ async function main () {
                 "                                            </ul>\n" +
                 "                                        </div>\n" +
                 "                                    </div>\n" +
-                "                                    <span class=\"v17_122\">Pepperoni</span>\n" +
-                "                                    <span class=\"v17_123\">1 kg</span>\n" +
-                "                                    <span class=\"v17_129\">30 centimeters</span>\n" +
-                "                                    <span class=\"v17_130\">1000$</span>\n" +
+                "                                    <span class=\"v17_122\">" + el.name + "</span>\n" +
+                "                                    <span class=\"v17_123\">" + el.mass + " g</span>\n" +
+                "                                    <span class=\"v17_129\">" + el.diam + " centimeters</span>\n" +
+                "                                    <span class=\"v17_130\">" + el.cost + "$</span>\n" +
                 "                                </div>\n" +
                 "                            </div>" +
                 "</div>";
@@ -133,7 +145,7 @@ async function main () {
                 "    </div>";
             let image = prev.querySelector(`#image_preview${n}`)
             console.log(image);
-            image.innerHTML += "<a href=\"#\"><img src=\"" + paginationData[n-1] + "\" alt=\"\"></a>";
+            image.innerHTML += "<a href=\"#\"><img src=\"" + paginationData[n-1].img + "\" alt=\"\"></a>";
             console.log(prev);
         }
 
@@ -173,16 +185,22 @@ async function main () {
     }
 
     async function sortByPrice() {
+        let data = postsData;
         let labelEl = document.querySelector('.list');
         let liEls = labelEl.children;
         for (let i = 0; i < liEls.length; i++) {
             liEls[i].addEventListener('click', () => {
                 if (liEls[i].innerText === 'Sort by price: low to high' && filter !== 'Sort by price: low to high') {
                     filter = 'Sort by price: low to high';
-                    displayList(postsData.reverse(), rows, currentPage);
+                    data.sort((a, b) => (a.cost >= b.cost) ? 1 : -1)
+                    displayList(data, rows, currentPage);
                 } else if (liEls[i].innerText === 'Sort by average rating' && filter !== 'Sort by average rating') {
                     filter = 'Sort by average rating';
-                    displayList(postsData.reverse(), rows, currentPage);
+                    displayList(data, rows, currentPage);
+                } else if (liEls[i].innerText === 'Sort by price: high to low' && filter !== 'Sort by price: high to low') {
+                    filter = 'Sort by price: high to low';
+                    data.sort((a, b) => (a.cost <= b.cost) ? 1 : -1)
+                    displayList(data, rows, currentPage);
                 }
             })
         }
